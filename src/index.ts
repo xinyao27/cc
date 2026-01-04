@@ -12,6 +12,9 @@ export default defineApp({
         allowWrite: ["*"],
         allowGitConfig: true,
       },
+      network: {
+        allowedDomains: ["*"],
+      }
     },
   },
 });
