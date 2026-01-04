@@ -20,7 +20,8 @@ async function executeAdd() {
       {
         value: "capture",
         name: "Capture current config",
-        description: "Save current ~/.claude/settings.json as a provider (recommended for subscription)",
+        description:
+          "Save current ~/.claude/settings.json as a provider (recommended for subscription)",
       },
       {
         value: "manual",
@@ -231,7 +232,11 @@ export const startTool = tool({
       const options = [
         ...providerOptions,
         { name: "➕ Add provider", description: "Add a new provider", value: ADD_OPTION },
-        { name: "➖ Remove provider", description: "Remove an existing provider", value: REMOVE_OPTION },
+        {
+          name: "➖ Remove provider",
+          description: "Remove an existing provider",
+          value: REMOVE_OPTION,
+        },
       ];
 
       selectedProviderId = await select({

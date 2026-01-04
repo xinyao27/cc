@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "description": "Fast Claude Code API provider switcher",
   "keywords": [
-    "cli",
-    "kly",
-    "claude-code",
     "anthropic",
     "api-switcher",
+    "claude-code",
+    "cli",
+    "kly",
     "provider"
   ],
   "license": "MIT",

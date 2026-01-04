@@ -83,10 +83,13 @@ export async function addProvider(provider: Omit<Provider, "id" | "createdAt">):
 /**
  * Update a provider
  */
-export async function updateProvider(id: string, updates: Partial<Omit<Provider, "id" | "name" | "settingsConfig">> & {
-  name?: string;
-  settingsConfig?: Provider["settingsConfig"];
-}): Promise<boolean> {
+export async function updateProvider(
+  id: string,
+  updates: Partial<Omit<Provider, "id" | "name" | "settingsConfig">> & {
+    name?: string;
+    settingsConfig?: Provider["settingsConfig"];
+  },
+): Promise<boolean> {
   const config = await loadProviders();
   const index = config.providers.findIndex((p) => p.id === id);
 
@@ -219,7 +222,7 @@ export async function switchProvider(id: string): Promise<Provider> {
 export async function captureCurrentAsProvider(
   name: string,
   description?: string,
-  category?: "subscription" | "api"
+  category?: "subscription" | "api",
 ): Promise<Provider | null> {
   const liveSettings = await readLiveSettings();
   if (!liveSettings) {

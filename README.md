@@ -20,6 +20,7 @@ kly link
 ```
 
 **Note**: The command name `cc` conflicts with the system C compiler. You can either:
+
 1. Use the command with full path after linking
 2. Or run directly without linking: `kly run ./src/index.ts`
 
@@ -68,11 +69,13 @@ cc start --provider personal
 ```
 
 Behavior:
+
 - If you specify `--provider`, that provider will be used directly
 - Otherwise, you'll see an interactive selection menu with all providers
 - The last used provider appears first in the list (as default choice)
 
 The tool will:
+
 1. Update Claude Code settings with the selected provider
 2. Automatically launch Claude Code in the background
 
@@ -91,6 +94,7 @@ cc remove --name personal
 ## How It Works
 
 The tool:
+
 1. Stores provider configurations in `~/.cc/providers.json`
 2. Updates `~/.claude/settings.json` with the selected provider settings:
    - `env.ANTHROPIC_AUTH_TOKEN` - API key (removed for subscription mode)
@@ -100,6 +104,7 @@ The tool:
 ## Provider Modes
 
 ### API Key Mode
+
 Use your own Anthropic API key. Charges are billed to your API account.
 
 ```bash
@@ -107,6 +112,7 @@ cc add --name personal --apiKey sk-ant-xxx
 ```
 
 ### Subscription Mode
+
 Use Claude Code's built-in subscription. No API key required - Claude Code will use its official login flow.
 
 ```bash
@@ -114,6 +120,7 @@ cc add --name subscription --apiKey ""
 ```
 
 ### Custom Endpoint Mode
+
 Use third-party API services compatible with Anthropic's API format.
 
 ```bash

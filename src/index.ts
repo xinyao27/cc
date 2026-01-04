@@ -6,4 +6,12 @@ export default defineApp({
   version: "0.1.0",
   description: "Fast Claude Code API provider switcher",
   tools: [startTool],
+  permissions: {
+    sandbox: {
+      filesystem: {
+        allowWrite: ["*"],
+        allowGitConfig: true,
+      },
+    },
+  },
 });
