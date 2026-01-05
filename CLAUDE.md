@@ -30,7 +30,6 @@ defineApp({
   description: "App description",
   tools: [myTool],
   instructions: "AI instructions for MCP mode",
-  permissions: { /* see Permissions section */ }
 });
 ```
 
@@ -69,11 +68,11 @@ Access configured LLM models via `context.models`:
 
 ```typescript
 execute: async (args, context) => {
-  // List models (no permission needed)
+  // List models
   const models = context.models.list();
   const current = context.models.getCurrent();
 
-  // Get full config with API key (requires apiKeys permission)
+  // Get full config with API key
   const config = await context.models.getConfigAsync();
   if (config) {
     // config.provider: "openai" | "anthropic" | "google" | ...
@@ -109,34 +108,6 @@ defineApp({
   instructions: "Use greet tool when user wants to say hello",
 });
 ```
-
-## Permissions
-
-Declare permissions upfront in `defineApp`:
-
-```typescript
-permissions: {
-  // API key access for LLM calls
-  apiKeys: true,
-
-  // Sandbox configuration
-  sandbox: {
-    network: {
-      allowedDomains: ["api.github.com", "api.example.com"]
-    },
-    filesystem: {
-      allowWrite: ["./output", "/tmp"],
-      denyRead: ["/etc/secrets"]
-    }
-  }
-}
-```
-
-**Permission notes:**
-
-- `apiKeys: true` automatically allows LLM API domains (openai, anthropic, google, etc.)
-- Default: no network, current directory read/write only
-- `~/.kly`, `~/.ssh`, `~/.aws`, `~/.gnupg` are always protected
 
 ## UI Components (CLI mode only)
 
